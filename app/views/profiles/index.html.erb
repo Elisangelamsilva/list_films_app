@@ -1,3 +1,12 @@
 <h1> Bem vindo!!! </h1>
 
+</br></br>
+
+<% @profiles.each do |profile| %>
+  <%= profile.name %>
+<% end %>
+
+
+<%= link_to 'Criar perfil', new_profile_path, method: :get %>
+
 <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

@@ -1,0 +1,7 @@
+
+<%= form_with model: @profile do |form| %> 
+  <%= form.text_field :name, class: 'input' %> 
+  <%= form.submit 'Criar', class: 'button is-link'%> 
+<% end%>
+
+<%= link_to 'Voltar', root_path, method: :get, class: 'button is-light' %>

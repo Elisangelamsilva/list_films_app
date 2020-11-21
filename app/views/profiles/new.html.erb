@@ -1,12 +1,10 @@
-<% flash.each do |type, msg| %>
-  <div class= "alert">
-    <%= msg %>
-  </div>
-<% end %>
 
-<%= form_with model: @profile, local: true do |form| %> 
-  <%= form.text_field :name, class: 'input' %> 
-  <%= form.submit 'Criar', class: 'button is-link'%> 
+
+<%= form_with model: @profile, local: true do |form| %>
+  <div class="form-group">
+  <%= form.label 'Insira o nome do perfil' %>:
+  <%= form.text_field :name, class:'form-control'%> 
+  <%= form.submit 'Criar', class:'btn btn-primary'%> 
 <% end%>
 
 <%= link_to 'Voltar', root_path, method: :get, class: 'button is-light' %>

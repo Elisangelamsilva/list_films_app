@@ -8,8 +8,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params).save
-    redirect_to profiles_path
+    @profile = Profile.new(profile_params)
+    if @profile.save
+      redirect_to profiles_path
+    else 
+      flash.now[:alert] = "Arruma isso aí pô"
+      render(:new)
+    end
   end
 
   def show

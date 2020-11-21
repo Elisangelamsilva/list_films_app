@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def index
-    @profiles = Profile.all 
+    @profiles = Profile.where({user_id:current_user.id})
   end
 
   def new

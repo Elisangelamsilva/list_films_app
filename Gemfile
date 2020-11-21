@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'devise'
 gem "pry"
+gem 'rest-client', '~> 2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'

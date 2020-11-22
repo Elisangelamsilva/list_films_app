@@ -21,6 +21,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def destroy
+    Profile.delete(params[:id])
+    redirect_to profiles_path
+  end
+
   private
 
   def profile_params

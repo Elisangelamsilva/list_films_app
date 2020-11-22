@@ -2,9 +2,12 @@
 
 <%= form_with model: @profile, local: true do |form| %>
   <div class="form-group">
-  <%= form.label 'Insira o nome do perfil' %>:
-  <%= form.text_field :name, class:'form-control'%> 
+  <%= form.label 'Inserir avatar (opcional)', style:'font-size: 20px' %>:
+  <%= form.file_field :avatar, class:'form-control-file', style:'margin: 10px' %>
+  <%= form.label 'Insira o nome do perfil', style:'font-size: 20px'%>:
+  <%= form.text_field :name, class:'form-control', style:'margin: 10px'%>
   <%= form.submit 'Criar', class:'btn btn-primary'%> 
 <% end%>
+
 
 <%= link_to 'Voltar', root_path, method: :get, class: 'button is-light' %>

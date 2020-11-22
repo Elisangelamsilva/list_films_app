@@ -4,9 +4,13 @@
 
 <div class="row justify-content-center">
   <% @profiles.each do |profile| %>
-    <div class="card col-md" style="margin: 6px;">
+    <div class="card col-md-3 ml-2">
       <%= link_to movies_path({profile_id:profile.id}) do %>
-        <img src="https://via.placeholder.com/150"    class="card-img-top" alt="...">
+      <% if profile.avatar.attached? %>
+        <%=image_tag profile.avatar,class:'card-img-top', style:'width: 100%; margin-top:10px' %>
+      <% else %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" style="width: 100%; margin-top:10px">
+      <%end%>
         <div class="card-body">
           <p class="card-text"><%= profile.name %></p>
         </div>

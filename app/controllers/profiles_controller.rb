@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to profiles_path
     else 
-      flash.now[:alert] = "Arruma isso aí pô"
+      flash.now[:alert] = "Dados inválidos"
       render(:new)
     end
   end

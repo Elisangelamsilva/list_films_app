@@ -1,4 +1,6 @@
 
+<%if @profile.errors.present? %> <p class="alert alert-secondary" role="alert"><%= @profile.errors.full_messages.first%> </p>
+<%end%>
 
 <%= form_with model: @profile, local: true do |form| %>
   <div class="form-group">

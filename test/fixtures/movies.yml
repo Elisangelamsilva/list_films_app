@@ -1,17 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  profile: one
   image: MyString
   nome: MyString
   resumo: MyString
   language: MyString
   release_date: 2020-11-26
   popularity: 2020-11-26
+  api_id: 
 
 two:
+  profile: two
   image: MyString
   nome: MyString
   resumo: MyString
   language: MyString
   release_date: 2020-11-26
   popularity: 2020-11-26
+  api_id: 

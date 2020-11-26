@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_190345) do
+ActiveRecord::Schema.define(version: 2020_11_26_222408) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 2020_11_22_190345) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "image"
+    t.string "nome"
+    t.string "resumo"
+    t.string "language"
+    t.date "release_date"
+    t.date "popularity"
+    t.decimal "api_id"
+    t.integer "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_movies_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -57,5 +71,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_190345) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "movies", "profiles"
   add_foreign_key "profiles", "users"
 end

@@ -1,6 +1,6 @@
-class CreateMovies < ActiveRecord::Migration[6.0]
+class CreateCreateMovies < ActiveRecord::Migration[6.0]
   def change
-    create_table :movies do |t|
+    create_table :create_movies do |t|
       t.string :image
       t.string :nome
       t.string :resumo
@@ -8,6 +8,8 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.date :release_date
       t.date :popularity
       t.number :api_id
+
+      t.timestamps
     end
   end
 end

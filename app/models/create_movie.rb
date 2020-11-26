@@ -1,0 +1,2 @@
+class CreateMovie < ApplicationRecord
+end

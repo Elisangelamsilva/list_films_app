@@ -14,13 +14,13 @@ var movies = ""
   var html = `
   <div class="card" style="width: 18rem; margin: 6px;">
     <img src="${img}" class="card-img-top" alt="...">
-
     <div class="card-body">
       <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal">${cadaFilme.title}</h5>
       <p class="card-text">${cadaFilme.overview}</p>
     </div>
+  </div>
     
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -40,14 +40,12 @@ var movies = ""
           </div>
 
           <div class="modal-footer">
-            <%= link_to 'Assistir', watch_movies_path(item), class:'btn btn-success', method: :post, remote: true  %>
-            <%= link_to 'Assistido', watched_movies_path(item), class:'btn btn-warning', method: :post, romote: true %>
+            <%= link_to 'Assistir', watch_movies_path(item), class:'btn btn-success', method: :post, 'data-remote': true  %>
+            <%= link_to 'Assistido', watched_movies_path(item), class:'btn btn-warning', method: :post, 'data-romote': true %>
           </div>
 
         </div>
       </div>
-    </div>
-
   </div>
   `
 

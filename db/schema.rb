@@ -34,13 +34,14 @@ ActiveRecord::Schema.define(version: 2020_11_26_222408) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "image"
-    t.string "nome"
-    t.string "resumo"
-    t.string "language"
-    t.date "release_date"
-    t.date "popularity"
-    t.decimal "api_id"
+    t.boolean "adult"
+    t.string "poster_path"
+    t.string "title"
+    t.string "overview"
+    t.string "original_language"
+    t.date "release_at"
+    t.float "popularity"
+    t.integer "api_id"
     t.integer "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

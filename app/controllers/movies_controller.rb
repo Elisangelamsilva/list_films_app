@@ -15,7 +15,9 @@ class MoviesController < ApplicationController
   # 
   def watch
     watch = Movie.new(movie_params)
+    watch.save
 
+    @movie = watch.attributes
   end
 
   def watched

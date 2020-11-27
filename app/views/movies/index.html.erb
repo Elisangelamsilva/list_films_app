@@ -6,22 +6,50 @@
 
  </br></br>
 
-<%= form_with url:  search_movies_path, method: :get  do |form|%>
-<div class="input-group mb-3">
-  <%= form.text_field :filme, class:'form-control', placeholder: 'Buscar filmes', 'aria-label': 'Buscar filmes' %>
-  <div class="input-group-append">
-    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#busca">Buscar</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#assistido">Assistidos</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#assistir">Assistir</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="busca" role="tabpanel">
+    <%= form_with url:  search_movies_path, method: :get  do |form|%>
+    <!-- input escondido com o nome :profile_id que passa como valor o id do perfil (utilizar quando quer passar algo e não mostrar na tela) -->
+      <%= form.hidden_field :profile_id, value: @profile.id %>
+      <div class="input-group mb-3">
+        <%= form.text_field :filme, class:'form-control', placeholder: 'Buscar filmes', 'aria-label': 'Buscar filmes' %>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </div>
+      </div>
+    <% end %>
+    <div class="resultado row justify-content-center">
+    </div>
   </div>
-  <% end %>
-</div>
 
-<div class="resultado row justify-content-center">
 
-</div>
+  <div class="tab-pane fade" id="assistido" role="tabpanel">        
+    <div class="row justify-content-center filmesAssistido">
+      <h2>Filmes assistidos</h2>
+      
+    </div>
+  </div>
 
-<div class="row justify-content-center">
-<h2>Filmes assistidos</h2>
-
+  <div class="tab-pane fade" id="assistir" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="row justify-content-center assistir"></div>
+  
+  <div>
+  
 </div>
 
 

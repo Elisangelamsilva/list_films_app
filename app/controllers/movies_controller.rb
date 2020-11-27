@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   def search
     busca = RestClient.get 'https://api.themoviedb.org/3/search/movie', { params: { api_key: '9dfb9439b9b75b6bfb4562a044d050ba', query: params[:filme] } }
 
+    @profile_id = params[:profile_id]
     
     @movies = JSON.parse(busca.body)
       
@@ -26,7 +27,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    permitted = params.permit(:title,:original_language,:overview,:popularity,:poster_path,:adult,:id,:release_date)
+    permitted = params.permit(:title,:original_language,:overview,:popularity,:poster_path,:adult,:id,:release_date, :profile_id)
     permitted.tap do |p|
       p[:popularity] = p[:popularity]
       p[:api_id] = p["id"]

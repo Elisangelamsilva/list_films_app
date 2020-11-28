@@ -1,0 +1,14 @@
+var assistir = document.querySelector(".assistir")
+
+var watchMovie = <%= raw @movie.to_json %>
+    
+  var html = `
+  <div class="card" style="width: 18rem; margin: 6px;">
+    <img src="<%= exibir_poster(@movie["poster_path"])%>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal">${watchMovie.title}</h5>
+      <p class="card-text">${watchMovie.overview}</p>
+    </div>
+  </div>
+  `
+  assistir.innerHTML += html    

@@ -54,6 +54,7 @@
           <div class="card-body">
           <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal"><%= movie.title%></h5>
           <p class="card-text"><%= movie.overview%></p>
+          <%= link_to 'Deletar da lista', movie_path(id: movie.id,profile_id: @profile.id), class: 'btn btn-dark float-right', method: :delete %>
         </div>
       </div>
      <%end%>

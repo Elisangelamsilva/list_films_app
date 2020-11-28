@@ -25,6 +25,11 @@ class MoviesController < ApplicationController
   def watched
   end
 
+  def destroy
+    Movie.delete(params[:id])
+    redirect_to movies_path(profile_id: params[:profile_id])
+  end
+
   private
 
   def movie_params

@@ -4,39 +4,34 @@ var img = "https://www.joblo.com/assets/images/joblo/database-specific-img-225x3
 var movies = ""
 <% @movies['results'].each do |item| %>
     var cadaFilme = <%= raw item.to_json %>
-
-    if (cadaFilme.poster_path) {
-    img = `https://image.tmdb.org/t/p/original/${cadaFilme.poster_path}`
-  } else {
-    img = "https://www.joblo.com/assets/images/joblo/database-specific-img-225x333.jpg"
-  }
+    console.log(cadaFilme)
     
   var html = `
   <div class="card" style="width: 18rem; margin: 6px;">
-    <img src="${img}" class="card-img-top" alt="...">
+    <img src="<%= exibir_poster(item["poster_path"])%>" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal">${cadaFilme.title}</h5>
+      <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal-<%= item["id"]%>">${cadaFilme.title}</h5>
       <p class="card-text">${cadaFilme.overview}</p>
     </div>
   </div>
     
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal-<%= item["id"]%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
 
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-            <strong>${cadaFilme.title}</strong></h5>
+            <strong><%= item["title"]%></strong></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
 
           <div class="modal-body">
-            <p><strong> Idioma Original: </strong> ${cadaFilme.original_language}</p>
-            <p><strong> Data de lançamento: </strong> ${cadaFilme.release_date}</p>
-            <p><strong> Popularidade: </strong> ${cadaFilme.popularity}</p>
-            <p><strong> Resumo:</strong> ${cadaFilme.overview} </p>
+            <p><strong> Idioma Original: </strong> <%= item["original_language"] %></p>
+            <p><strong> Data de lançamento: </strong><%= item["release_date"]%></p>
+            <p><strong> Popularidade: </strong><%= item["popularity"]%></p>
+            <p><strong> Resumo:</strong> <%= item["overview"]%> </p>
           </div>
 
           <div class="modal-footer">

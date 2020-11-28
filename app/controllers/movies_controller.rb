@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @profile = Profile.find(params[:profile_id])
+    @movies = Movie.where(profile_id: @profile.id)
   end
 
   def search

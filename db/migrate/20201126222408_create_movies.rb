@@ -2,6 +2,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
   def change
     create_table :movies do |t|
       t.boolean :adult
+      t.integer :status
       t.string :poster_path
       t.string :title
       t.string :overview

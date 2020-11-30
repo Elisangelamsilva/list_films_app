@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_222408) do
 
   create_table "movies", force: :cascade do |t|
     t.boolean "adult"
+    t.integer "status"
     t.string "poster_path"
     t.string "title"
     t.string "overview"

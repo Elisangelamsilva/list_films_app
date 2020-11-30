@@ -35,8 +35,8 @@ var movies = ""
           </div>
 
           <div class="modal-footer">
-            <%= link_to 'Assistir', watch_movies_path(item.merge(profile_id: @profile_id)), class:'btn btn-success', method: :post, 'data-remote': true  %>
-            <%= link_to 'Assistido', watched_movies_path(item.merge(profile_id: @profile_id)), class:'btn btn-warning', method: :post, 'data-romote': true %>
+            <%= link_to 'Assistir', movies_path(params: item.merge(profile_id: @profile_id, status: "to_watch")), class:'btn btn-success', method: :post, 'data-remote': true  %>
+            <%= link_to 'Assistido', movies_path(params: item.merge(profile_id: @profile_id, status: "watched")), class: 'btn btn-warning', method: :post, 'data-remote': true  %>
           </div>
 
         </div>

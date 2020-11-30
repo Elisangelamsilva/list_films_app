@@ -15,14 +15,11 @@ class MoviesController < ApplicationController
 
   # listar db do model => model.all
   # 
-  def watch
+  def create
     watch = Movie.new(movie_params)
     watch.save
 
     @movie = watch.attributes
-  end
-
-  def watched
   end
 
   def destroy
@@ -33,7 +30,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    permitted = params.permit(:title,:original_language,:overview,:popularity,:poster_path,:adult,:id,:release_date, :profile_id)
+    permitted = params.permit(:title,:original_language,:overview,:popularity,:poster_path,:adult,:id,:release_date, :profile_id, :status)
     permitted.tap do |p|
       p[:popularity] = p[:popularity]
       p[:api_id] = p["id"]

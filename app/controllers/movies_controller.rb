@@ -16,10 +16,13 @@ class MoviesController < ApplicationController
   # listar db do model => model.all
   # 
   def create
-    watch = Movie.new(movie_params)
-    watch.save
-
-    @movie = watch.attributes
+    @movie = Movie.find_by(api_id: movie_params[:api_id])
+    if @movie
+      @movie.update(movie_params)
+    else
+      @movie = Movie.new(movie_params)
+      @movie.save
+    end
   end
 
   def destroy

@@ -1,6 +1,6 @@
 var assistir = document.querySelector(".assistir")
-
-var watchMovie = <%= raw @movie.to_json %>
+var assistido = document.querySelector(".assistido")
+var watchMovie = <%= raw @movie.attributes.to_json %>
     
   var html = `
   <div class="card" style="width: 18rem; margin: 6px;">
@@ -11,4 +11,9 @@ var watchMovie = <%= raw @movie.to_json %>
     </div>
   </div>
   `
-  assistir.innerHTML += html    
+  <% if @movie.to_watch? %>
+    assistir.innerHTML += html
+  <% else %>
+    assistido.innerHTML += html
+  <% end %>
+      

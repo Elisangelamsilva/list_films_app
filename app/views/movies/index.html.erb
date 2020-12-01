@@ -39,15 +39,25 @@
 
 
   <div class="tab-pane fade" id="assistido" role="tabpanel">        
-    <div class="row justify-content-center filmesAssistido">
-      <h2>Filmes assistidos</h2>
+    <div class="row justify-content-center assistido">
+       <% @movies.select(&:watched?).each do |movie| %>
+
+      <div class="card" style="width: 18rem; margin: 6px;">
+        <img src="<%= exibir_poster(movie.poster_path)%>" class="card-img-top" alt="...">
+          <div class="card-body">
+          <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal"><%= movie.title%></h5>
+          <p class="card-text"><%= movie.overview%></p>
+          <%= link_to 'Deletar da lista', movie_path(id: movie.id,profile_id: @profile.id), class: 'btn btn-dark float-right', method: :delete %>
+        </div>
+      </div>
+     <%end%>
       
     </div>
   </div>
 
   <div class="tab-pane fade" id="assistir" role="tabpanel" aria-labelledby="contact-tab">
   <div class="row justify-content-center assistir">
-     <% @movies.each do |movie| %>
+     <% @movies.select(&:to_watch?).each do |movie| %>
 
       <div class="card" style="width: 18rem; margin: 6px;">
         <img src="<%= exibir_poster(movie.poster_path)%>" class="card-img-top" alt="...">

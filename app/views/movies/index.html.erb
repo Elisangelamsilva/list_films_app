@@ -42,7 +42,7 @@
     <div class="row justify-content-center assistido">
        <% @movies.select(&:watched?).each do |movie| %>
 
-      <div class="card" style="width: 18rem; margin: 6px;">
+      <div class="card movie-<%=movie.id%>" style="width: 18rem; margin: 6px;">
         <img src="<%= exibir_poster(movie.poster_path)%>" class="card-img-top" alt="...">
           <div class="card-body">
           <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal"><%= movie.title%></h5>
@@ -59,12 +59,14 @@
   <div class="row justify-content-center assistir">
      <% @movies.select(&:to_watch?).each do |movie| %>
 
-      <div class="card" style="width: 18rem; margin: 6px;">
+      <div class="card movie-<%= movie.id%>" style="width: 18rem; margin: 6px;">
         <img src="<%= exibir_poster(movie.poster_path)%>" class="card-img-top" alt="...">
           <div class="card-body">
           <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal"><%= movie.title%></h5>
           <p class="card-text"><%= movie.overview%></p>
           <%= link_to 'Deletar da lista', movie_path(id: movie.id,profile_id: @profile.id), class: 'btn btn-dark float-right', method: :delete %>
+
+          <%= link_to 'Assistido', movies_path(movie: movie.id, profile_id: @profile_id, status: "watched"), class: 'btn btn-warning', method: :post, 'data-remote': true  %>
         </div>
       </div>
      <%end%>

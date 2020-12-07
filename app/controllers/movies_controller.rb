@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
   # 
   def create
     @movie = Movie.find_by(api_id: movie_params[:api_id])
+    binding.pry
     if @movie
       @movie.update(movie_params)
     else
@@ -35,10 +36,10 @@ class MoviesController < ApplicationController
   def movie_params
     permitted = params.permit(:title,:original_language,:overview,:popularity,:poster_path,:adult,:id,:release_date, :profile_id, :status)
     permitted.tap do |p|
-      p[:popularity] = p[:popularity]
+      p[:popularity] = p[:popularity] if p[:popularity]
       p[:api_id] = p["id"]
       p.delete(:id)
-      p[:release_at] = p["release_date"]
+      p[:release_at] = p["release_date"] if p["release_date"] 
       p.delete(:release_date)
     end
   end

@@ -66,7 +66,7 @@
           <p class="card-text"><%= movie.overview%></p>
           <%= link_to 'Deletar da lista', movie_path(id: movie.id,profile_id: @profile.id), class: 'btn btn-dark float-right', method: :delete %>
 
-          <%= link_to 'Assistido', movies_path(movie: movie.id, profile_id: @profile_id, status: "watched"), class: 'btn btn-warning', method: :post, 'data-remote': true  %>
+          <%= link_to 'Assistido', movies_path(profile_id: movie.id, id: movie.api_id, profile_id: @profile_id, status: "watched"), class: 'btn btn-warning', method: :post, 'data-remote': true  %>
         </div>
       </div>
      <%end%>

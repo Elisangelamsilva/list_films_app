@@ -8,7 +8,9 @@ var assistido = document.querySelector(".assistido")
     <div class="card-body">
       <h5 class="card-title btn btn-light" data-toggle="modal" data-target="#exampleModal"><%= @movie.title%></h5>
       <p class="card-text"> <%= @movie.overview%></p>
-        </div>
+      <%= link_to 'Deletar da lista', movie_path(id: @movie.id,profile_id: @profile.id), class: 'btn btn-dark float-right', method: :delete %>
+
+      <%= link_to 'Assistido', movies_path(profile_id: @movie.id, id: @movie.api_id, profile_id: @profile.id, status: "watched"), class: 'btn btn-warning', method: :post, 'data-remote': true  if @movie.to_watch? %> 
     </div>
   </div>
   `

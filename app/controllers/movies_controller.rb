@@ -17,13 +17,13 @@ class MoviesController < ApplicationController
   # 
   def create
     @movie = Movie.find_by(api_id: movie_params[:api_id])
-    binding.pry
     if @movie
       @movie.update(movie_params)
     else
       @movie = Movie.new(movie_params)
       @movie.save
     end
+    @profile = Profile.find(params[:profile_id])
   end
 
   def destroy

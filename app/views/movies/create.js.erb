@@ -20,3 +20,8 @@ var assistido = document.querySelector(".assistido")
     assistido.innerHTML += html
   <% end %>
   
+  <%# j para ter o html puro scape javascript e por html safe %>
+  var flashHtml = "<%= j render 'layouts/flash' %>"
+  var flashMessage = document.querySelector('.flash-message')
+
+  flashMessage.innerHTML = flashHtml

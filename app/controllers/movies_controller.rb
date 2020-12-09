@@ -24,11 +24,15 @@ class MoviesController < ApplicationController
       @movie.save
     end
     @profile = Profile.find(params[:profile_id])
+    flash.now[:notice] = "Salvo com sucesso."
   end
 
   def destroy
     Movie.delete(params[:id])
-    redirect_to movies_path(profile_id: params[:profile_id])
+    if Movie.delete(params[:id])
+      flash[:notice] = "Filme deletado com sucesso"
+      redirect_to movies_path(profile_id: params[:profile_id])
+    end
   end
 
   private

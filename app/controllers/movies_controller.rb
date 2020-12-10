@@ -14,7 +14,6 @@ class MoviesController < ApplicationController
   end
 
   # listar db do model => model.all
-  # 
   def create
     @movie = Movie.find_by(api_id: movie_params[:api_id])
     if @movie

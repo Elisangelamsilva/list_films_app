@@ -9,9 +9,10 @@ Uma conta pode ser vinculada a mais de um perfil. A lista de filmes estar associ
 
 * Ruby version 2.5
 
-* Configuration
 
-1. Yarn instalado
+- Configuração: 
+
+1. Yarn install
 2. rails db:migrate
 3. bundle install
 
